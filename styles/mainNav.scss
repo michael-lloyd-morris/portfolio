@@ -1,0 +1,75 @@
+$mainNav-height: 5em;
+
+header.main {
+  background: $primary-background-color;
+  color: $tertiary-text-color;
+  display: flex;
+  align-items: center;
+  height: $mainNav-height;
+  border-bottom: 1px solid $tertiary-text-color;
+  z-index: 1000;
+
+  a {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 1em;
+    align-items: center;
+  }
+
+  >div {
+    padding: 1em;
+    width: 20em;
+
+    div:first-child {
+      font-size: 1.25em;
+    }
+    div:last-child {
+      font-size: 0.9em;
+    }
+  }
+
+  >nav {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    
+
+    >div {
+      position: relative;
+      transition: 0.5s ease-in;
+      >div {
+        border: 1px solid $tertiary-text-color;
+        border-top: 0;
+        margin-top: $mainNav-height * -1;
+        position: absolute;
+        z-index: -100;
+        overflow: hidden;
+        top: 0;
+        opacity: 0;
+
+        transition: 0.5s ease-in;
+        a {
+          height: 3em;
+          transition: 0.5s ease-in;
+          &:hover {
+            background-color: $secondary-background-color;
+          }
+        }
+  
+      }
+
+
+      &:hover {
+        background: $secondary-background-color;
+
+        >div {
+          margin-top: $mainNav-height;
+          z-index: 1;
+          opacity: 100%;
+          background: $primary-background-color;
+        }
+      }
+    }
+  }
+}

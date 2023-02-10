@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@import "./vars.scss";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
+  color: $primary-text-color;
+}
+
+html {
+  @media (min-width: 1000px) {
+    font-size: 1vw;
+  }
+}
+
+body {
+  font-size: 1.6em;
+}
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  padding: 3em;
+
+  a {
+    color: blue;
+    &:visited {
+      color: purple;
+    }
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+p {
+  margin: 1em auto;
+
+  &:first-child::first-letter {
+    display: block;
+    float: left;
+    font-size: 2.5em;
+    line-height: 0.9;
+  }
+}
+
+.formComponent {
+  margin: 1em 0;
+  > * {
+    display: block;
+  }
+}
+
+.goodProgress::before {
+  content: "\25B2 ";
+  color: green;
+}
+
+.badProgress::before {
+  content: "\25BC ";
+  color: red;
+}
+
+@import "./mainNav.scss"
