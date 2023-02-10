@@ -18,7 +18,7 @@ export default function ChessVariants({handleChange}:Props) {
         <option value="crazyhouse">Crazyhouse (a.k.a. Bughouse)</option>
         <option value="antichess">Anti-chess</option>
         <option value="atomic">Atomic</option>
-        <option value="horde">Horde (a.k.a. Dusany's Chess)</option>
+        <option value="horde">Horde (a.k.a. Dusany&apos;s Chess)</option>
         <option value="kingOfTheHill">King of the Hill</option>
         <option value="racingKings">Racing Kings</option>
         <option value="threeCheck">Three Check</option>

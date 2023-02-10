@@ -1,4 +1,5 @@
-import { ReactNode } from 'react'
+import { ReactNode } from 'react';
+import Link from 'next/link';
 
 interface Props {
   children?: ReactNode,
@@ -12,23 +13,23 @@ export default function MainNav({}:Props) {
         <div>Senior Web Developer</div>
       </div>
       <nav>
-        <div><a href="/">About</a></div>
+        <div><Link href="/">About</Link></div>
         <div>
-          <a href="/projects">Projects</a>
+          <Link href="/projects">Projects</Link>
           <div>
-            <a href="/projects/drupal">Drupal</a>
-            <a href="/projects/cucumber">Cucumber JS</a>
+            <Link href="/projects/drupal">Drupal</Link>
+            <Link href="/projects/cucumber">Cucumber JS</Link>
           </div>
         </div>
         <div>
-          <a href="/skills/">Skills</a>
+          <Link href="/skills/">Skills</Link>
           <div>
-            <a href="/skills/ag-grid">AgGrid</a>
-            <a href="phpunit">PHP</a>
+            <Link href="/skills/ag-grid">AgGrid</Link>
+            <Link href="phpunit">PHP</Link>
           </div>
         </div>
-        <div><a href="experience">Experience</a></div>
-        <div><a href="contact">Contact</a></div>
+        <div><Link href="experience">Experience</Link></div>
+        <div><Link href="contact">Contact</Link></div>
       </nav>
     </header>
   )

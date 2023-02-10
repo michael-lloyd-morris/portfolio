@@ -43,7 +43,6 @@ export default function Home() {
 
   const handleChange = (event: FormEvent) => {
     if (event.target instanceof HTMLSelectElement) {
-      console.log(`Change to ${event.target.value}`);
       variant = event.target.value;
       fetchPlayers();
     }
@@ -53,7 +52,7 @@ export default function Home() {
     <Page title="Skills - AgGrid">
       <h1>AG Grid Demonstration</h1>
       <section>
-        <p>Many websites deal with large datasets, and I've found one of the best tools for working with those datasets is AG Grid. I have experience with the Enterprise version, but for these demonstrations the free community edition will be used. The data is from <a href="https://lichess.org">LiChess</a> and each list is the top 20 players for each variant of the game.</p>
+        <p>Many websites deal with large datasets, and I&apos;ve found one of the best tools for working with those datasets is AG Grid. I have experience with the Enterprise version, but for these demonstrations the free community edition will be used. The data is from <a href="https://lichess.org">LiChess</a> and each list is the top 20 players for each variant of the game.</p>
       </section>
       <ChessVariants handleChange={handleChange} />
       <div
