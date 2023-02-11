@@ -6,7 +6,7 @@ export default function Home() {
     <Page title="Projects - Runtime Assertions in Drupal">
       <h1>Runtime Assertions in Drupal</h1>
       <section>
-        <Image src={"/img/logos/drupal-4.svg"}  className="topicLogo" alt="Drupal Logo"/>
+        <img src={"/img/logos/drupal-4.svg"}  className="topicLogo" alt="Drupal Logo"/>
         <p>While Drupal 8 was late into its beta I decided to investigate the changes that it was bringing to the Drupal project. I had used Drupal for a few projects over the years including a chamber of commerce website for the City of Knoxville, TN, but Drupal 8 was utterly different from 7 and there was so much to explore it verged on overwhelming. I started with creating my own templates and made a mistake in the configuration that took me four days to debug because the error message that was being returned was incredibly cryptic.</p>
         <p>When I tracked down the point of the problem deep in the core code I thought to myself, &quot;if only there was an assert statement here to tell me what I&apos;m doing wrong, could have saved me days.&quot; So I wrote up an issue ticket and joined the Drupal community forums and IRC determined to change the world.</p>
         <p>What followed was a six month back and forth with the community. Many of the members didn&apos;t know what the assert statement was, and most of those that did misunderstood it&apos;s application. But slowly I won over the majority of the project leads and got a green light for its inclusion provided it could solve one last unsolved problem.</p>
