@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import Link from 'next/link';
+import NavLink from "./NavLink";
 
 interface Props {
   children?: ReactNode,
@@ -13,23 +13,26 @@ export default function MainNav({}:Props) {
         <div>Senior Web Developer</div>
       </div>
       <nav>
-        <div><Link href="/">About</Link></div>
+        <div><NavLink href="/">About</NavLink></div>
         <div>
-          <Link href="/projects">Projects</Link>
+          <NavLink href="/projects">Projects</NavLink>
           <div>
-            <Link href="/projects/drupal">Drupal</Link>
-            <Link href="/projects/cucumber">Cucumber JS</Link>
+            <NavLink href="/projects/drupal">Drupal</NavLink>
+            <NavLink href="/projects/cucumber">Cucumber JS</NavLink>
           </div>
         </div>
         <div>
-          <Link href="/skills/">Skills</Link>
+          <NavLink href="/demos/">Demos</NavLink>
           <div>
-            <Link href="/skills/ag-grid">AgGrid</Link>
-            <Link href="phpunit">PHP</Link>
+            <NavLink href="/demos/ag-grid">AgGrid</NavLink>
           </div>
         </div>
-        <div><Link href="experience">Experience</Link></div>
-        <div><Link href="contact">Contact</Link></div>
+        <div><NavLink href="/experience">Experience</NavLink></div>
+      </nav>
+      <nav>
+        <a href="https://www.linkedin.com/in/michael-morris-00b4b7118/" className="icon-linkedin"></a>
+        <a href="mailto:tendoaki@gmail.com" className="icon-envelop"></a>
+        <a href="tel:6063440594" className="icon-phone"></a>
       </nav>
     </header>
   )

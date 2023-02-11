@@ -1,0 +1,94 @@
+
+.tech {
+  list-style: none;
+  margin-left: 3em;
+
+  li {
+    position: relative;
+    min-height: 5rem;
+
+    &::before {
+      display: block;
+      content: "";
+      height: 5rem;
+      width: 5rem;
+      position: absolute;
+      left: -6rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    &.ag-grid::before {
+      background-image: url('/img/logos/ag-grid.svg')
+    }
+    &.composer::before {
+      background-image: url('/img/logos/composer.svg');
+    }
+    &.css::before {
+      background-image: url('/img/logos/css-3.svg');
+    }
+    &.cucumber::before {
+      background-image: url('/img/logos/cucumber.svg');
+    }
+    &.drupal::before {
+      background-image: url('/img/logos/drupal-4.svg');
+    }
+    &.git::before {
+      background-image: url('/img/logos/git-icon.svg');
+    }
+    &.gitlab::before {
+      background-image: url('/img/logos/gitlab.svg');
+    }
+    &.html::before {
+      background-image: url('/img/logos/html-1.svg');
+    }
+    &.javascript::before {
+      background-image: url('/img/logos/logo-javascript.svg');
+    }
+    &.mysql::before {
+      background-image: url('/img/logos/mysql-6.svg');
+    }
+    &.nextjs::before {
+      background-image: url('/img/logos/next-js.svg');
+    }
+    &.nodejs::before {
+      background-image: url('/img/logos/nodejs-icon.svg');
+    }
+    &.npm::before {
+      background-image: url('/img/logos/npm.svg');
+    }
+    &.php::before {
+      background-image: url('/img/logos/php-1.svg');
+    }
+    &.react::before {
+      background-image: url('/img/logos/react.svg');
+    }
+    &.sass::before {
+      background-image: url('/img/logos/sass-1.svg');
+    }
+    &.single-spa::before {
+      background-image: url('/img/logos/single-spa.svg');
+    }
+    &.typescript::before {
+      background-image: url('/img/logos/typescript.svg');
+    }
+    &.visualstudio::before {
+      background-image: url('/img/logos/visual-studio-code-1.svg');
+    }
+    &.webpack::before {
+      background-image: url('/img/logos/webpack-icon.svg');
+    }
+
+
+
+
+
+
+
+
+
+
+
+  }
+}

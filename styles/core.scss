@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
+  color: $primary-text-color;
+}
+
+/*
+ * This is a responsive trick I love to use because my eyesight is getting bad.
+ * I have a 54" UHD TV for a monitor, and if I want the site to be larger, I can
+ * get that effect merely by resizing the window.  This does mean the base font
+ * gets ridiculously big if the window is given enough space, but I'm not the only
+ * person with failing eyesight.
+ */
+html {
+  @media (min-width: 1000px) {
+    font-size: 1vw;
+  }
+}
+
+/*
+ * Now get the text back to a legible size on a 1000px wide screen.
+ */
+body {
+  font-size: 1.6em;
+}
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  padding: 3em;
+
+  a {
+    color: blue;
+
+    &:visited {
+      color: purple;
+    }
+
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+main {
+  p,
+  li {
+    margin: 1em auto;
+    line-height: 1.25
+  }
+}
+
+h2 {
+  border-bottom: 1px solid $primary-text-color;
+}
+
+article {
+  padding-bottom: 2em;
+
+  >section {
+    margin-left: 2.5em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid $primary-text-color;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.formComponent {
+  margin: 1em 0;
+
+  >* {
+    display: block;
+  }
+}
+
+aside {
+  float: right;
+  
+}
+
+.goodProgress::before {
+  content: "\25B2 ";
+  color: green;
+}
+
+.badProgress::before {
+  content: "\25BC ";
+  color: red;
+}
+
+ul,
+ol {
+  padding-left: 1em;
+}
+
+.topicLogo {
+  height: auto;
+  width: 10rem;
+  float: right;
+  padding: 0 0 2rem 2rem
+}
+
+footer.main {
+  border-top: 1px solid $primary-text-color;
+  padding: 2em;
+  color: $tertiary-text-color;
+  display: flex;
+  justify-content: space-between;
+}

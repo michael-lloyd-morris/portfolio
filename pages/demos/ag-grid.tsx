@@ -4,6 +4,7 @@ import { useState, useEffect, FormEvent } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
+import Image from "next/image";
 
 export default function Home() {
   let variant = "bullet";
@@ -39,7 +40,7 @@ export default function Home() {
       });
   }
 
-  useEffect(fetchPlayers, []);
+  useEffect(fetchPlayers, [variant]);
 
   const handleChange = (event: FormEvent) => {
     if (event.target instanceof HTMLSelectElement) {
@@ -52,6 +53,8 @@ export default function Home() {
     <Page title="Skills - AgGrid">
       <h1>AG Grid Demonstration</h1>
       <section>
+        <Image src={"/img/logos/ag-grid.svg"} className="topicLogo" alt="AgGrid Logo"/>
+
         <p>Many websites deal with large datasets, and I&apos;ve found one of the best tools for working with those datasets is AG Grid. I have experience with the Enterprise version, but for these demonstrations the free community edition will be used. The data is from <a href="https://lichess.org">LiChess</a> and each list is the top 20 players for each variant of the game.</p>
       </section>
       <ChessVariants handleChange={handleChange} />

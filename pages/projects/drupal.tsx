@@ -1,12 +1,14 @@
 import Page from "@/components/Page"
+import Image from "next/image"
 
 export default function Home() {
   return (
     <Page title="Projects - Runtime Assertions in Drupal">
       <h1>Runtime Assertions in Drupal</h1>
       <section>
+        <Image src={"/img/logos/drupal-4.svg"}  className="topicLogo" alt="Drupal Logo"/>
         <p>While Drupal 8 was late into its beta I decided to investigate the changes that it was bringing to the Drupal project. I had used Drupal for a few projects over the years including a chamber of commerce website for the City of Knoxville, TN, but Drupal 8 was utterly different from 7 and there was so much to explore it verged on overwhelming. I started with creating my own templates and made a mistake in the configuration that took me four days to debug because the error message that was being returned was incredibly cryptic.</p>
-        <p>When I tracked down the point of the problem deep in the core code I thought to myself, &ldquot;if only there was an assert statement here to tell me what I&apos;m doing wrong, could have saved me days.&rdquot; So I wrote up an issue ticket and joined the Drupal community forums and IRC determined to change the world</p>
+        <p>When I tracked down the point of the problem deep in the core code I thought to myself, &quot;if only there was an assert statement here to tell me what I&apos;m doing wrong, could have saved me days.&quot; So I wrote up an issue ticket and joined the Drupal community forums and IRC determined to change the world.</p>
         <p>What followed was a six month back and forth with the community. Many of the members didn&apos;t know what the assert statement was, and most of those that did misunderstood it&apos;s application. But slowly I won over the majority of the project leads and got a green light for its inclusion provided it could solve one last unsolved problem.</p>
         <p>Drupal uses string tokens to identify components and modules. These labels are included in the YAML files constructed by the programmer and they must be valid strings with some formatting restrictions.  If a malformed token is inserted into the database the site can be corrupted and reversing the action can be painful to outright impossible for a developer without deep knowledge into the workings of Drupal Core.  To prevent such a mistake Drupal 8 did a validation pass over all the tokens on each request. On a production site though this token list can be thousands, even tens of thousands of entries in length for a large complex site.</p>
         <p>These tokens are only changed by programmers and module developers. They are not subject to change by users or by the environment - so their integrity can be asserted in a development environment and the process can be skipped in production. They were an ideal candidate to prove the worth of runtime assertions in Drupal, so the task was assigned to me to prove the concept. Drupal 8 was late in beta at this point, and the slowness of the system was one of the last blockers before going to release candidates.</p>
