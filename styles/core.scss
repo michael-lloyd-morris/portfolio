@@ -20,8 +20,38 @@ body {
  * person with failing eyesight.
  */
 html {
-  @media (min-width: 1000px) {
-    font-size: 1vw;
+  font-size: 1vw;
+
+  @media (max-width: 999px) {
+    font-size: 1.125vw;
+  }
+
+  @media (max-width: 899px) {
+    font-size: 1.25vw;
+  }
+
+  @media (max-width: 799px) {
+    font-size: 1.43vw;
+  }
+
+  @media (max-width: 699px) {
+    font-size: 1.675vw;
+  }
+
+  @media (max-width: 599px) {
+    font-size: 2vw;
+  }
+
+  @media (max-width: 499px) {
+    font-size: 2.5vw;
+  }
+
+  @media (max-width: 399px) {
+    font-size: 3.35vw;
+  }
+
+  @media (max-width: 299px) {
+    font-size: 5vw;
   }
 }
 
@@ -41,6 +71,10 @@ a {
 main {
   padding: 3em;
 
+  @media (max-width: 799px) {
+    padding: 2vmax;
+  }
+
   a {
     color: blue;
 
@@ -55,6 +89,7 @@ main {
 }
 
 main {
+
   p,
   li {
     margin: 1em auto;
@@ -92,7 +127,7 @@ article {
 
 aside {
   float: right;
-  
+
 }
 
 .goodProgress::before {
@@ -123,4 +158,9 @@ footer.main {
   color: $tertiary-text-color;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 499px) {
+    display: block;
+    text-align: center;
+  }
 }

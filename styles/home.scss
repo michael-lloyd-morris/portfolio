@@ -3,7 +3,11 @@
   list-style: none;
   margin-left: 3em;
 
-  li {
+  @media (max-width: 499px) {
+    margin-left: 0;
+  }
+
+  li {    
     position: relative;
     min-height: 5rem;
 
@@ -17,6 +21,12 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
+
+      @media (max-width: 499px) {
+        position: static;
+        float: left;
+        margin: 0 1em 1em 0;
+      }
     }
 
     &.ag-grid::before {

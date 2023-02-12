@@ -2,12 +2,17 @@ $mainNav-height: 5em;
 
 main {
   margin-top: $mainNav-height;
+
+  @media (max-width: 499px) {
+    margin-top: 0;
+  }
 }
 
 header.main {
   position: fixed;
   top: 0;
   width: 100%;
+  justify-content: space-between;
   background: $primary-background-color;
   color: $tertiary-text-color;
   display: flex;
@@ -29,7 +34,7 @@ header.main {
     }
   }
 
-  >div {
+  .lead {
     padding: 1em;
     width: 20em;
 
@@ -42,75 +47,133 @@ header.main {
     }
   }
 
-  >nav {
-    display: flex;
+  .navs {
     height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    >nav {
+      display: flex;
+      height: 100%;
 
-    a.active {
-      background-color: $tertiary-background-color;
-    }
-    
-    >div {
-      position: relative;
-      transition: 0.5s ease-in;
-
-      >a {
-        padding: 1em;
+      a.active {
+        background-color: $tertiary-background-color;
       }
 
       >div {
-        position: absolute;
-        top: $mainNav-height * 2;
-        border: 1px solid $tertiary-text-color;
-        border-top: 0;
-        margin-top: $mainNav-height * -1;
-        overflow: hidden;
-        opacity: 0;
+        position: relative;
         transition: 0.5s ease-in;
-        width: 10em;
-        height: 0;
+
 
         >a {
-          padding: 0.5em;
-          border-bottom: 1px solid $primary-text-color;
+          padding: 1em;
+        }
 
-          &:last-child {
-            border: 0;
+        >div {
+          position: absolute;
+          border: 1px solid $tertiary-text-color;
+          overflow: hidden;
+          opacity: 0;
+          transition: 0.5s ease-in;
+          width: 10em;
+          height: 0;
+
+          >a {
+            padding: 0.5em;
+            border-bottom: 1px solid $primary-text-color;
+
+            &:last-child {
+              border: 0;
+            }
+          }
+        }
+
+        &:hover {
+          background: $secondary-background-color;
+
+          >div {
+            z-index: 1;
+            opacity: 100%;
+            background: $primary-background-color;
+            height: auto;
           }
         }
       }
 
-      &:hover {
-        background: $secondary-background-color;
+      &:last-child {
 
-        >div {
-          z-index: 1;
-          opacity: 100%;
-          background: $primary-background-color;
-          height: auto;
+        a {
+          height: 100%;
+          padding: 1em;
+
+          &:hover {
+            &.icon-linkedin {
+              color: #0077b5;
+            }
+
+            &.icon-envelop {
+              color: #900;
+            }
+
+            &.icon-phone {
+              color: #0f0;
+            }
+          }
+
+          @media (max-width: 799px) {
+            width: 1em;
+          }
+
         }
+
+        @media (max-width: 799px) {
+          margin-right: 1em;
+        }
+
       }
     }
 
-    &:last-child {
-      margin-left: 3em;
-      
-      a {
-        height: $mainNav-height;
-        padding: 1em;
+  }
 
-        &:hover {
-          &.icon-linkedin {
-            color: #0077b5;
-          }
-          &.icon-envelop {
-            color: #900;
-          }
-          &.icon-phone {
-            color: #0f0;
-          }
+  @media (max-width: 799px) {
+    display: block;
+    
+    .lead {
+      width: 100%;      
+      display: flex;
+      justify-content: space-between;
+      align-items: top;
+      height: $mainNav-height / 2;
+    }
+
+    .navs {
+      height: $mainNav-height / 2;
+    }
+  }
+
+  @media (max-width: 499px) {
+    position: static;
+    display: block;
+    height: auto;
+
+    .lead {
+      display: block;
+      text-align: center;
+      height: auto;
+    }
+
+    .navs {
+      display: block;
+      height: auto;
+
+      >nav {
+        justify-content: space-around;
+        height: auto;
+        flex-wrap: wrap;
+
+        >div:hover >div {
+          display: none;
         }
-        border-bottom: 1px solid $primary-text-color;
       }
     }
   }

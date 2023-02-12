@@ -4,7 +4,6 @@ import { useState, useEffect, FormEvent } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
-import Image from "next/image";
 
 export default function Home() {
   let variant = "bullet";
