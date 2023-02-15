@@ -25,6 +25,8 @@
   },
   "devDependencies": {
     "@cucumber/cucumber": "^8.11.1",
+    "@playwright/test": "^1.30.0",
+    "playwright": "^1.30.0",
     "sass": "^1.58.0",
     "ts-node": "^10.9.1"
   }
