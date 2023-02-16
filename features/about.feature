@@ -12,4 +12,5 @@ Feature: Pages
   | /projects/cucumber | Projects - Cucumber                     |
   | /demos             | Demos                                   |
   | /demos/ag-grid     | Demos - AgGrid                          |
+  | /demos/css-ems     | Demos - CSS Responsiveness with EMS     |
   | /experience        | Experience                              |
