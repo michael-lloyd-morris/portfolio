@@ -6,7 +6,7 @@ import Link from "next/link"
 export default function Home() {
   return (
     <Page title="Demos - Cucumber Testing in NextJS">
-      <h1>Demos</h1>
+      <h1>Cucumber Testing in NextJS</h1>
       <section>
         <p>The online documentation of NextJS covers testing the framework with Jest, Cypress and Playwright, so I had to figure out how to get CucumberJS to play nice with it. This is what I&apos;ve found to work. You can run these tests on a local node machine by <a href="https://github.com/michael-lloyd-morris/portfolio">cloning the repository of this portfolio</a>.</p>
         <p>Since this is a portfolio, for the moment I just need to make sure all the pages render. A parse error in a shared component like the header nav can bring the whole site down, and each page also has a React component that can fail.  So our first feature is just get a page headcount</p>
