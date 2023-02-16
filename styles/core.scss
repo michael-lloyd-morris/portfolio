@@ -12,13 +12,6 @@ body {
   color: $primary-text-color;
 }
 
-/*
- * This is a responsive trick I love to use because my eyesight is getting bad.
- * I have a 54" UHD TV for a monitor, and if I want the site to be larger, I can
- * get that effect merely by resizing the window.  This does mean the base font
- * gets ridiculously big if the window is given enough space, but I'm not the only
- * person with failing eyesight.
- */
 html {
   font-size: 1vw;
 
@@ -56,7 +49,7 @@ html {
 }
 
 /*
- * Now get the text back to a legible size on a 1000px wide screen.
+ * Now get the text back to a legible size.
  */
 body {
   font-size: 1.6em;

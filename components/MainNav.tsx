@@ -26,14 +26,16 @@ export default function MainNav({}:Props) {
             <NavLink href="/demos/">Demos</NavLink>
             <div>
               <NavLink href="/demos/ag-grid">AgGrid</NavLink>
+              <NavLink href="/demos/css-ems">CSS Ems</NavLink>
             </div>
           </div>
           <div><NavLink href="/experience">Experience</NavLink></div>
         </nav>
         <nav>
-          <a href="https://www.linkedin.com/in/michael-morris-00b4b7118/" className="icon-linkedin"></a>
-          <a href="mailto:tendoaki@gmail.com" className="icon-envelop"></a>
-          <a href="tel:6063440594" className="icon-phone"></a>
+          <a href="/resume.pdf" className="icon-file-text2" title="My Resume"></a>
+          <a href="https://www.linkedin.com/in/michael-morris-00b4b7118/" className="icon-linkedin" title="Linked In Profile"></a>
+          <a href="mailto:tendoaki@gmail.com" className="icon-envelop" title="Email"></a>
+          <a href="tel:6063440594" className="icon-phone" title="Phone"></a>
         </nav>
       </div>
     </header>

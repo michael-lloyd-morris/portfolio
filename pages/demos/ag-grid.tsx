@@ -49,7 +49,7 @@ export default function Home() {
   }
 
   return (
-    <Page title="Skills - AgGrid">
+    <Page title="Demos - AgGrid">
       <h1>AG Grid Demonstration</h1>
       <section>
         <img src={"/img/logos/ag-grid.svg"} className="topicLogo" alt="AgGrid Logo" />

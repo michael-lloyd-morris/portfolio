@@ -107,6 +107,9 @@ header.main {
           padding: 1em;
 
           &:hover {
+            &.icon-file-text2 {
+              color: #f90;
+            }
             &.icon-linkedin {
               color: #0077b5;
             }
