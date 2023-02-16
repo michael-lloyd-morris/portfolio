@@ -145,6 +145,12 @@ ol {
   padding: 0 0 2rem 2rem
 }
 
+pre {
+  background: $secondary-background-color;
+  padding: 1em;
+  border: 1px solid $primary-text-color;
+}
+
 footer.main {
   border-top: 1px solid $primary-text-color;
   padding: 2em;

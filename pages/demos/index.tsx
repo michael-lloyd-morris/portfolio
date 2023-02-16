@@ -11,6 +11,7 @@ export default function Home() {
       <ul>
         <li><Link href="/demos/ag-grid">AgGrid Demonstration</Link></li>
         <li><Link href="/demos/css-ems">CSS Responsiveness with EMs</Link></li>
+        <li><Link href="/demos/next-cucumber">Cucumber Testing with NextJS</Link></li>
       </ul>
     </Page>
   )

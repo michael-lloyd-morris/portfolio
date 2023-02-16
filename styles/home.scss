@@ -3,11 +3,15 @@
   list-style: none;
   margin-left: 3em;
 
+  ul {
+    list-style: none;
+  }
+
   @media (max-width: 499px) {
     margin-left: 0;
   }
 
-  li {    
+  li.logo {    
     position: relative;
     min-height: 5rem;
 

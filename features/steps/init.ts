@@ -10,7 +10,8 @@ setWorldConstructor(World);
 let nextJS:ChildProcess;
 
 BeforeAll(() => new Promise<void>(resolve => {
-  nextJS = spawn('npm.cmd', ['run', 'dev', '--', '-p', '0']);
+  const cmd = `${os.type()}`.includes('Windows') ? 'npm.cmd' : 'npm';
+  nextJS = spawn(cmd, ['run', 'dev', '--', '-p', '0']);
 
   nextJS.stdout!.on('data', data => {
     const response = `${data}`;
