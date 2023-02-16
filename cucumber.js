@@ -6,8 +6,3 @@ module.exports = {
     exit: true
   }
 }
-
-/*
- * To get Cucumber to work with NextJs I had to change the module directive from
- * `esnext` to `commonjs`
- */

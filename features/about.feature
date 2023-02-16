@@ -1,5 +1,10 @@
-Feature: About Page
+Feature: Pages
 
-  Scenario: About Page Loads
-    When I navigate to the site 
-    Then I should see the about page
+  Scenario Outline: Pages Load
+    When I navigate to the "<page>" 
+    Then the page title should be "<title>"
+
+  Examples:
+  | page      | title    |
+  | /         |          |
+  | /projects | Projects |

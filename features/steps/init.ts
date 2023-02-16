@@ -1,12 +1,13 @@
-import { AfterAll, BeforeAll, setDefaultTimeout } from "@cucumber/cucumber"
+import { After, AfterAll, BeforeAll, setDefaultTimeout, setWorldConstructor, Before } from "@cucumber/cucumber"
 import { ChildProcess, spawn } from "child_process";
+import { setPort } from "../support/Browser"
+import World from "../support/World";
 import os from 'os';
-import { Browser, chromium, Page } from 'playwright';
 
 setDefaultTimeout(60000);
+setWorldConstructor(World);
 
 let nextJS:ChildProcess;
-let port:string;
 
 BeforeAll(() => new Promise<void>(resolve => {
   nextJS = spawn('npm.cmd', ['run', 'dev', '--', '-p', '0']);
@@ -14,7 +15,7 @@ BeforeAll(() => new Promise<void>(resolve => {
   nextJS.stdout!.on('data', data => {
     const response = `${data}`;
     if (response.includes("started server on")) {
-      port = response.substring(response.lastIndexOf(":") + 1);
+      setPort(response.substring(response.lastIndexOf(":") + 1));
       resolve();
     }
   });
@@ -30,4 +31,12 @@ AfterAll(() => {
   } else {
     nextJS.kill('SIGINT');
   }
+});
+
+Before(async function(this:World) {
+  await this.startBrowser();
+});
+
+After(async function(this:World) {
+  await this.browser.close();
 });
