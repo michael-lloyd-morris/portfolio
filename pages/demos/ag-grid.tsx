@@ -1,11 +1,23 @@
 import Page from "@/components/Page";
 import ChessVariants from "@/components/ChessVariants";
-import { useState, useEffect, FormEvent } from 'react';
+import { useState, useEffect, useMemo, useRef, FormEvent } from 'react';
 import { AgGridReact } from 'ag-grid-react';
+import 'ag-grid-enterprise';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
+import {
+  ColDef,
+  ColGroupDef,
+  FirstDataRenderedEvent,
+  Grid,
+  GridOptions,
+  GridReadyEvent,
+} from 'ag-grid-community';
+import ChessPlayerDetailCellRenderer from "@/components/ChessPlayerDetailCellRenderer";
 
 export default function Home() {
+  const gridRef = useRef<AgGridReact<any>>(null);
+
   let variant = "bullet";
 
   const progressCellRenderer = (params:any) => {
@@ -17,7 +29,7 @@ export default function Home() {
   };
 
   const [columnDefs] = useState([
-    { headerName: 'Username', field: 'username' },
+    { headerName: 'Username', field: 'username', cellRenderer: 'agGroupCellRenderer' },
     { headerName: 'Title', field: 'title' },
     { headerName: 'Rating', field: 'rating' },
     { headerName: 'Progress', field: 'progress', cellRenderer: progressCellRenderer },
@@ -50,9 +62,14 @@ export default function Home() {
 
   return (
     <Page title="Demos - AgGrid">
+        <aside className="agGrid">
+          <img src={"/img/logos/ag-grid.svg"} className="topicLogo" alt="AgGrid Logo" />
+          <h3>Licensing</h3>
+          <p>This demonstration page is using the Enterprise version of AgGrid without a license key, so if you check the console you will see multiple error messages about this. I checked with AgGrid&apos;s customer service and secured a written ok for the use of the library on this page - the license key is only required for production sites.</p>
+        </aside>
       <h1>AG Grid Demonstration</h1>
       <section>
-        <img src={"/img/logos/ag-grid.svg"} className="topicLogo" alt="AgGrid Logo" />
+
 
         <p>Many websites deal with large datasets, and I&apos;ve found one of the best tools for working with those datasets is AG Grid. I have experience with the Enterprise version, but for these demonstrations the free community edition will be used. The data is from <a href="https://lichess.org">LiChess</a> and each list is the top 20 players for each variant of the game.</p>
       </section>
@@ -62,8 +79,11 @@ export default function Home() {
         style={{ height: 600, width: 800 }}
       >
         <AgGridReact
+          ref={gridRef}
           rowData={rowData}
           columnDefs={columnDefs}
+          masterDetail={true}
+          detailCellRenderer={ChessPlayerDetailCellRenderer}
         ></AgGridReact>
       </div>
     </Page>
