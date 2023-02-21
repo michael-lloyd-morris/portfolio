@@ -15,11 +15,14 @@ import {
 } from 'ag-grid-community';
 import ChessPlayerDetailCellRenderer from "@/components/chess/ChessPlayerDetailCellRenderer";
 import ChessProgressCellRenderer from "@/components/chess/ChessProgressCellRenderer";
+import ChessPlayerBrief from "@/components/chess/interfaces/ChessPlayerBrief";
 
-
+interface Leaderboard {
+  users:Array<ChessPlayerBrief>
+}
 
 export default function Home() {
-  const gridRef = useRef<AgGridReact<any>>(null);
+  const gridRef = useRef<AgGridReact<Leaderboard>>(null);
 
   let variant = "bullet";
 

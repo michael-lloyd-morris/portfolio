@@ -1,49 +1,57 @@
 import React, { useEffect, useState } from 'react';
 import ReactCountryFlag from 'react-country-flag';
+import { DateTime } from 'luxon';
+import ChessPlayerDetail from './interfaces/ChessPlayerDetail';
+import ChessPlayerBrief from './interfaces/ChessPlayerBrief';
+import { IRowNode } from 'ag-grid-enterprise'
 
-const PlayerDetail = (data:any) => {
-  console.log(data);
-  return <h2>Hello world</h2>
-}
-
-const ChessPlayerDetailCellRenderer = ({data}:any) => {
-  const userid = data.id;
-  const [playerData, setPlayerData] = useState<any>({
-    profile: {
-      firstName: "",
-      lastName: "",
-
-    }
+const ChessPlayerDetailCellRenderer = ({data}:IRowNode<ChessPlayerBrief>) => {
+  const [playerData, setPlayerData] = useState<ChessPlayerDetail>({
+    id:"",
+    createdAt:0,
+    seenAt:0
   });
 
-  console.log(playerData);
-
   const fetchPlayer = () => {
-    fetch(`https://lichess.org/api/user/${userid}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setPlayerData(data);
-      });
+    //@ts-ignore
+    fetch(`https://lichess.org/api/user/${data.id}`)
+      .then(response => response.json())
+      .then(data => setPlayerData(data));
   }
-  
-  useEffect(fetchPlayer, [userid]);
-  
-  if (playerData.profile) 
+
+  //@ts-ignore
+  useEffect(fetchPlayer, [data.id]);
+
+  if (playerData.profile)
     return (
       <div className="detail">
-        <h3>
-          {playerData.profile.firstName}&nbsp; 
+        <h3><a href={playerData.url}>
+          {playerData.profile.firstName}&nbsp;
           {playerData.profile.lastName}&nbsp;
-          <ReactCountryFlag countryCode={playerData.profile.country} svg />
+        </a>
+        {playerData.profile.country && <ReactCountryFlag countryCode={playerData.profile.country} svg />}
         </h3>
+        <dl>
+          {playerData.profile.fideRating != "" &&
+            <><dt>FIDE rating</dt><dd>{playerData.profile.fideRating}</dd></>
+          }
+          <dt>Member since:</dt><dd>{DateTime.fromMillis(playerData.createdAt).toLocaleString()}</dd>
+          <dt>Last Online:</dt><dd>{DateTime.fromMillis(playerData.seenAt).toRelative()}</dd>
+        </dl>
       </div>
     );
   else
     return (
-      <div>There is no public profile information for this player.</div>
+      <div className="detail">
+        <h3>{playerData.username}</h3>
+        <span>There is no public profile information for this player.</span>
+        <dl>
+
+          <dt>Member since:</dt><dd>{DateTime.fromMillis(playerData.createdAt).toLocaleString()}</dd>
+          <dt>Last Online:</dt><dd>{DateTime.fromMillis(playerData.seenAt).toRelative()}</dd>
+        </dl>
+      </div>
     );
 }
-
-
 
 export default ChessPlayerDetailCellRenderer;

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@next/font": "13.1.6",
+    "@types/luxon": "^3.2.0",
     "@types/node": "18.13.0",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
@@ -19,6 +20,7 @@
     "ag-grid-react": "^29.1.0",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
+    "luxon": "^3.2.1",
     "next": "13.1.6",
     "react": "18.2.0",
     "react-country-flag": "^3.0.2",

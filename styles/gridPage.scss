@@ -11,3 +11,17 @@ aside.agGrid {
 .detail {
   padding: 1em;
 }
+
+dl {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 0 1em;  
+}
+
+dt {
+  width: 10em;
+  font-weight: bold;
+  margin-right: 1em;
+}
+
+
