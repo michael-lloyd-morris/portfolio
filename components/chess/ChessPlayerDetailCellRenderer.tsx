@@ -6,6 +6,14 @@ import ChessPlayerBrief from './interfaces/ChessPlayerBrief';
 import { IRowNode } from 'ag-grid-enterprise'
 
 const ChessPlayerDetailCellRenderer = ({data}:IRowNode<ChessPlayerBrief>) => {
+  /*
+   * We aren't using the row grouping feature that can cause this to be undefined,
+   * but to keep Typescript happy let's check it anyway.
+   */
+  if (typeof(data) === "undefined") {
+    throw new Error("No row data available.");
+  }
+
   const [playerData, setPlayerData] = useState<ChessPlayerDetail>({
     id:"",
     createdAt:0,
@@ -13,13 +21,11 @@ const ChessPlayerDetailCellRenderer = ({data}:IRowNode<ChessPlayerBrief>) => {
   });
 
   const fetchPlayer = () => {
-    //@ts-ignore
     fetch(`https://lichess.org/api/user/${data.id}`)
       .then(response => response.json())
       .then(data => setPlayerData(data));
   }
 
-  //@ts-ignore
   useEffect(fetchPlayer, [data.id]);
 
   if (playerData.profile)

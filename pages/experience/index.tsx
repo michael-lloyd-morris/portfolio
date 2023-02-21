@@ -15,18 +15,18 @@ export default function Home() {
         <section>
           <h3>Fleetcor</h3>
           <sub>August 2020 - December 2022</sub>
-          <p>Fleetcor is one of the larger FinTech companies worldwide, focusing primarily on fuel payment cards and related services. Over the years they&apos;ve aquired multiple smaller companies, each with their own web applications and services. I was brought on as a front end developer for a project to unite these disparate applications into one. The version I was brought in to work on was being built using Hugo with vanilla JavaScript. During the interview process I asked for the reasoning behind using no major framework and was told they were pointless overhead.</p>
+          <p>Fleetcor is one of the larger FinTech companies worldwide, focusing primarily on fuel payment cards and related services. Over the years they&apos;ve acquired multiple smaller companies, each with their own web applications and services. I was brought on as a front end developer for a project to unite these disparate applications into one. The version I was brought in to work on was being built using Hugo with vanilla JavaScript. During the interview process I asked for the reasoning behind using no major framework and was told they were pointless overhead.</p>
           <p>The first task I was put to was a registration page. A full end to end test took 10 minutes to do if you had the passwords to either the dev or production database to setup the test - and as a frontend developer I had no database access. So I wrote a small testing suite for my code which used Express.js to provide the possible responses from the backend from a JSON file. Management took one look at the testing system and asked for it to be expanded to the rest of the application which, up until that point, had been worked on without any automated tests.</p>
           <p>By the time of my release I had accomplished the following:</p>
           <ul>
             <li>Introduced the entire production staff from Product owners down to Behavior Driven Development, altering the workflow of the entire company to create more accurate and meaningful estimates of development time based on a count of the scenarios and their steps rather than pure speculation.</li>
-            <li>Built the functional test layer of the application based on Cucumber-JS and using Puppeteer as browser driver.</li>
-            <li>Built a mocking engine in Express.js that could accurately simulate the responses of the REST API provided by the backend team in MuleSoft. Prior to this engine being introduced the front end teams (around 20 people) suffered multiple work stoppages when the dev REST API went down - which at worst was a weekly occurence, usually when they tried to deploy something the first time.</li>
+            <li>Built the functional test layer of the application in Node.js using cucumber-JS and Puppeteer as browser driver.</li>
+            <li>Built a mocking engine in Express.js that could accurately simulate the responses of the REST API provided by the backend team in MuleSoft. Prior to this engine being introduced the front end teams (around 20 people) suffered multiple work stoppages when the dev REST API went down - which at worst was a weekly occurrence, usually when they tried to deploy something the first time.</li>
             <li>Served as Interim lead application designer for two months. I later learned Fleetcor had considered hiring me directly to fill the post, but the buyout requested by RSI under the anti-poaching clause of the contract was too high for them.</li>
             <li>Implemented a decision to move the application away from a framework-less approach built on the Hugo static site generator to a React site. The new designer chose to use a micro-frontend architecture using the Single Spa framework, but left the details to me, so the following was done:
               <ul>
-                <li>Micro-frontends where to be built in Typescript. I had to lead multiple retraining classes in support of this.</li>
-                <li>Each page of the site was to be moved to its own repository with its own production pipeline. I wrote all of the supporting CI sripts in GitLab for this and created all project templates to be used.</li>
+                <li>Micro-frontends were to be built in Typescript. I had to lead multiple retraining classes in support of this.</li>
+                <li>Each page of the site was to be moved to its own repository with its own production pipeline. I wrote all of the supporting CI scripts in GitLab for this and created all project templates to be used.</li>
               </ul>
             </li>
           </ul>
@@ -34,9 +34,9 @@ export default function Home() {
         </section>
         <section>
           <h3>McKenney&apos;s Inc.</h3>
-          <sub>February 2020 - March 2022</sub>
-          <p>McKenney&apos;s provides HVAC and smart building optimation services for some of the largest strutures in the Atlanta area. Some of these strutures have in excess of 90,000 data points reporting every 15 minutes. They have a brilliant engineer on staff to gather and collate this information, and I was tasked to build a front end for him to make the information he&apos;d gathered more accessible. This engagement was for six weeks.</p>
-          <p>The backend already in place was in MVC Razor. I learned how to get some templates and with a little guidance did what little C# code I needed to support the pages he needed. We chose to go with a combination of AgGrid to write the reports, and CodeMirror to allow his team to write in their own report formulae into the application in Excel style. A custom multiselect tool was also developed to sort through the thousands of possible datapoints.</p>
+          <sub>February 2020 - March 2020</sub>
+          <p>McKenney&apos;s provides HVAC and smart building optimization services for some of the largest structures in the Atlanta area. Some of these structures have in excess of 90,000 data points reporting every 15 minutes. They have a brilliant engineer on staff to gather and collate this information, and I was tasked to build a front end for him to make the information he&apos;d gathered more accessible. This engagement was for six weeks.</p>
+          <p>The backend already in place was in MVC Razor. I learned how to get some templates and with a little guidance did what little C# code I needed to support the pages he needed. We chose to go with a combination of AgGrid to write the reports, and CodeMirror to allow his team to write in their own report formulae into the application in Excel style. A custom multiselect tool was also developed to sort through the thousands of possible data points.</p>
         </section>
         <section>
           <h3>Enterprise Holdings</h3>
@@ -48,12 +48,12 @@ export default function Home() {
       <article>
         <h2>Lexington-Fayette Urban County Government</h2>
         <sub>January 2017 - August 2017</sub>
-        <p>The city&apos;s website is a Drupal installation, and I was charged with general maintainence and expansion of the site, including the addition of a parks map system using ArchGis.</p>
+        <p>The city&apos;s website is a Drupal installation, and I was charged with general maintenance and expansion of the site, including the addition of a parks map system using ArchGis.</p>
       </article>
       <article>
         <h2>Tombras</h2>
         <sub>June 2013 - June 2016</sub>
-        <p>Tombras is an advertising agency, and so I was building Wordpress sites, advertising Microsites, and one largish Drupal 7 site for the Knoxville Chamber of Commerce.</p>
+        <p>Tombras is an advertising agency, and so I was building Wordpress sites, advertising Micro-sites, and one largish Drupal 7 site for the Knoxville Chamber of Commerce.</p>
       </article>
       <article>
         <h2>Webbed Sphere Inc.</h2>
@@ -70,7 +70,7 @@ export default function Home() {
       <article>
         <h2>DMGx</h2>
         <sub>2006-2010</sub>
-        <p>Another advertising agency, I worked on custom microsites and also a large number of Actionscript class modules and plugins - with the passing of Flash most of what I used and learned here isn&apos;t really useful anymore.</p>
+        <p>Another advertising agency, I worked on custom micro-sites and also a large number of Actionscript class modules and plugins - with the passing of Flash most of what I used and learned here isn&apos;t really useful anymore.</p>
       </article>
       <article>
         <h2>Intermedia Graphics</h2>

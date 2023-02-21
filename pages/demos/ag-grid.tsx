@@ -5,21 +5,12 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-enterprise';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
-import {
-  ColDef,
-  ColGroupDef,
-  FirstDataRenderedEvent,
-  Grid,
-  GridOptions,
-  GridReadyEvent,
-} from 'ag-grid-community';
+
 import ChessPlayerDetailCellRenderer from "@/components/chess/ChessPlayerDetailCellRenderer";
 import ChessProgressCellRenderer from "@/components/chess/ChessProgressCellRenderer";
 import ChessPlayerBrief from "@/components/chess/interfaces/ChessPlayerBrief";
+import Leaderboard from "@/components/chess/interfaces/Leaderboard";
 
-interface Leaderboard {
-  users:Array<ChessPlayerBrief>
-}
 
 export default function Home() {
   const gridRef = useRef<AgGridReact<Leaderboard>>(null);
