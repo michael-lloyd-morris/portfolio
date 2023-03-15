@@ -3,6 +3,8 @@
     "HVAC",
     "Kenney",
     "luxon",
-    "Millis"
+    "Millis",
+    "perfs",
+    "tanstack"
   ]
 }
