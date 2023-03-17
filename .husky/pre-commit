@@ -1,4 +1,10 @@
 #!/usr/bin/env sh
+
+# Husky is a plugin that allows git hooks to be moved between
+# developers. Here I'm using it just to make sure lint and test
+# run before commit so that all committed code is, theoretically,
+# deployable.
+
 . "$(dirname -- "$0")/_/husky.sh"
 
 npm run lint && npm test

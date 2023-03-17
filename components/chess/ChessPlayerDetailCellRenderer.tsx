@@ -1,60 +1,55 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ReactCountryFlag from 'react-country-flag';
 import { DateTime } from 'luxon';
-import ChessPlayerDetail from './interfaces/ChessPlayerDetail';
 import ChessPlayerBrief from './interfaces/ChessPlayerBrief';
 import { IRowNode } from 'ag-grid-enterprise'
+import { useQuery } from '@tanstack/react-query';
 
-const ChessPlayerDetailCellRenderer = ({data}:IRowNode<ChessPlayerBrief>) => {
+const ChessPlayerDetailCellRenderer = ({data:rowData}:IRowNode<ChessPlayerBrief>) => {
   /*
    * We aren't using the row grouping feature that can cause this to be undefined,
    * but to keep Typescript happy let's check it anyway.
    */
-  if (typeof(data) === "undefined") {
+  if (typeof(rowData) === "undefined") {
     throw new Error("No row data available.");
   }
 
-  const [playerData, setPlayerData] = useState<ChessPlayerDetail>({
-    id:"",
-    createdAt:0,
-    seenAt:0
-  });
+  const [userId, setUserId] = useState(rowData.id);
 
-  const fetchPlayer = () => {
-    fetch(`https://lichess.org/api/user/${data.id}`)
-      .then(response => response.json())
-      .then(data => setPlayerData(data));
-  }
+  const {isLoading, data} = useQuery(["liChessUser", userId], () => 
+    fetch(`https://lichess.org/api/user/${userId}`)
+    .then(response => response.json())
+  );
 
-  useEffect(fetchPlayer, [data.id]);
+  if (isLoading) return <div>Loading...</div>
 
-  if (playerData.profile)
+  if (data.profile)
     return (
       <div className="detail">
-        <h3><a href={playerData.url}>
-          {playerData.profile.firstName}&nbsp;
-          {playerData.profile.lastName}&nbsp;
+        <h3><a href={data.url}>
+          {data.profile.firstName}&nbsp;
+          {data.profile.lastName}&nbsp;
         </a>
-        {playerData.profile.country && <ReactCountryFlag countryCode={playerData.profile.country} svg />}
+        {data.profile.country && <ReactCountryFlag countryCode={data.profile.country} svg />}
         </h3>
         <dl>
-          {playerData.profile.fideRating != "" &&
-            <><dt>FIDE rating</dt><dd>{playerData.profile.fideRating}</dd></>
+          {data.profile.fideRating != "" &&
+            <><dt>FIDE rating</dt><dd>{data.profile.fideRating}</dd></>
           }
-          <dt>Member since:</dt><dd>{DateTime.fromMillis(playerData.createdAt).toLocaleString()}</dd>
-          <dt>Last Online:</dt><dd>{DateTime.fromMillis(playerData.seenAt).toRelative()}</dd>
+          <dt>Member since:</dt><dd>{DateTime.fromMillis(data.createdAt).toLocaleString()}</dd>
+          <dt>Last Online:</dt><dd>{DateTime.fromMillis(data.seenAt).toRelative()}</dd>
         </dl>
       </div>
     );
   else
     return (
       <div className="detail">
-        <h3>{playerData.username}</h3>
+        <h3>{data.username}</h3>
         <span>There is no public profile information for this player.</span>
         <dl>
 
-          <dt>Member since:</dt><dd>{DateTime.fromMillis(playerData.createdAt).toLocaleString()}</dd>
-          <dt>Last Online:</dt><dd>{DateTime.fromMillis(playerData.seenAt).toRelative()}</dd>
+          <dt>Member since:</dt><dd>{DateTime.fromMillis(data.createdAt).toLocaleString()}</dd>
+          <dt>Last Online:</dt><dd>{DateTime.fromMillis(data.seenAt).toRelative()}</dd>
         </dl>
       </div>
     );
