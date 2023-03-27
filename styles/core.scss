@@ -53,8 +53,14 @@ html {
  */
 body {
   font-size: 1.6em;
+  background-image: url('/img/vecteezy_abstract-3d-design-background-with-technology-dot-and-line.png');
+  background-position: center;
+  background-size: cover;  
 }
 
+#__next {
+  height: 100%;
+}
 
 a {
   color: inherit;
@@ -82,7 +88,6 @@ main {
 }
 
 main {
-
   p,
   li {
     margin: 1em auto;
@@ -156,6 +161,15 @@ pre {
   border: 1px solid $primary-text-color;
 }
 
+.transition-container {
+  overflow: hidden;
+  height: 100%;
+
+  > div {
+    height: 100%;
+  }
+}
+
 footer.main {
   border-top: 1px solid $primary-text-color;
   padding: 2em;
@@ -169,6 +183,7 @@ footer.main {
   }
 }
 
-.example-1 {
-  overflow: hidden;
+.main-wrap {
+  background-color: rgba(255,255,255,0.9);
+  height: 100%;
 }

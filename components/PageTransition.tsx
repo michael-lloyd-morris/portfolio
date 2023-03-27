@@ -28,7 +28,7 @@ const PageTransition = ({children}:Props) => {
   const { asPath } = useRouter();
 
   return (
-    <div className="effect=1">
+    <div className="transition-container">
       <AnimatePresence
         initial={false}
         mode={"wait"}>
