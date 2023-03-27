@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import NavLink from "./NavLink";
-
+import Link from 'next/link';
 interface Props {
   children?: ReactNode,
 }
@@ -9,12 +9,14 @@ export default function MainNav({}:Props) {
   return (
     <header className="main">
       <div className="lead">
+        <Link href="/">
         <div>Michael Lloyd Morris</div>
         <div>Senior Web Developer</div>
+        </Link>
       </div>
       <div className="navs">
         <nav>
-          <div><NavLink href="/">About</NavLink></div>
+          <div><NavLink href="/about">About</NavLink></div>
           <div>
             <NavLink href="/projects">Projects</NavLink>
             <div>

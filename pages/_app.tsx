@@ -2,7 +2,6 @@ import '@/styles/globals.scss'
 import type { AppProps } from 'next/app'
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
-import MainNav from '@/components/MainNav';
 import Head from 'next/head';
 import PageTransition from '@/components/PageTransition';
 
@@ -20,7 +19,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="og:description" content="Veteran code monkey looking for work." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MainNav />
       <PageTransition>
         <Component {...pageProps} />
       </PageTransition> 

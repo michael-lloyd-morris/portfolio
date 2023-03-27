@@ -1,10 +1,12 @@
-import Page from "@/components/Page"
-import DrupalPage from "@/components/DrupalPage";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <Page>
-      <DrupalPage nodeId={3}></DrupalPage>
-    </Page>
-  )
+    <Link href="/about">
+      <div className="home">
+        <h1>Michael Lloyd Morris</h1>
+        <p>Senior Web Developer</p>
+      </div>
+    </Link>
+  );
 }

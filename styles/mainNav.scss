@@ -1,15 +1,4 @@
-$mainNav-height: 5em;
-
-.main-wrap {
-  margin-top: $mainNav-height;
-
-  @media (max-width: 499px) {
-    margin-top: 0;
-  }
-}
-
 header.main {
-  position: fixed;
   top: 0;
   width: 100%;
   justify-content: space-between;
@@ -38,12 +27,18 @@ header.main {
     padding: 1em;
     width: 20em;
 
-    div:first-child {
-      font-size: 1.25em;
-    }
+    a {
+      display: flex;
+      flex-flow: column;
+      align-items: flex-start;
 
-    div:last-child {
-      font-size: 0.9em;
+      div:first-child {
+        font-size: 1.25em;
+      }
+
+      div:last-child {
+        font-size: 0.9em;
+      }
     }
   }
 
@@ -142,11 +137,15 @@ header.main {
     display: block;
     
     .lead {
-      width: 100%;      
-      display: flex;
-      justify-content: space-between;
-      align-items: top;
-      height: $mainNav-height / 2;
+      width: 100%;
+      padding: 0;
+      a {      
+        flex-flow: row;
+        justify-content: space-between;
+        align-items: top;
+        height: $mainNav-height / 2;
+        padding: 0.5em;
+      }
     }
 
     .navs {
@@ -178,6 +177,20 @@ header.main {
           display: none;
         }
       }
+    }
+  }
+
+  @media (max-width: 399px) {
+    .lead a {
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 299px) {
+    .lead a {
+      height: auto;
     }
   }
 }
