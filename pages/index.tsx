@@ -5,7 +5,9 @@ export default function Home() {
     <Link href="/about">
       <div className="home">
         <h1>Michael Lloyd Morris</h1>
-        <p>Senior Web Developer</p>
+        <p>Senior Web Developer
+          <span>Click or touch anywhere to begin.</span>
+        </p>
       </div>
     </Link>
   );
