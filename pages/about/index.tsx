@@ -1,4 +1,4 @@
-import Page from "@/components/Page"
+import Page from "@/components/Page";
 import DrupalPage from "@/components/DrupalPage";
 
 export default function Home() {
@@ -6,5 +6,5 @@ export default function Home() {
     <Page>
       <DrupalPage nodeId={3}></DrupalPage>
     </Page>
-  )
+  );
 }

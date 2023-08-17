@@ -6,5 +6,5 @@ export default function Home() {
     <Page title="Experience">
       <DrupalPage nodeId={5}></DrupalPage>
     </Page>
-  )
+  );
 }

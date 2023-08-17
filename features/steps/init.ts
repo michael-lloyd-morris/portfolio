@@ -40,7 +40,7 @@ BeforeAll(async () => {
 });
 
 AfterAll(() => {
-  browser.close()
+  browser.close();
   if (`${os.type()}`.includes("Windows")) {
     spawn("taskkill", ["/pid", `${nextJS.pid}`, "/f", "/t"]);
   } else {

@@ -19,9 +19,9 @@ class Browser {
     return this._page;
   }
 
-  async init() {  
+  async init() {
     if (process.env.DEBUG_TEST) {
-      this._driver = await chromium.launch({headless: false, slowMo: 50});
+      this._driver = await chromium.launch({ headless: false, slowMo: 50 });
     } else {
       this._driver = await chromium.launch();
     }
