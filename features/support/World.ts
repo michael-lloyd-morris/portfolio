@@ -1,13 +1,31 @@
-import { World } from "@cucumber/cucumber"
-import { Browser } from "./Browser"
+import { World } from "@cucumber/cucumber";
+import { Browser } from "./Browser";
+import MockServer from "./MockServer";
+import path from "path";
 
 export default class extends World {
-  private _browser:Browser
+  #browser: Browser;
+  #mockServer: MockServer;
+
   get browser() {
-    return this._browser;
+    return this.#browser;
   }
-  async startBrowser() {
-    this._browser = new Browser();
-    await this._browser.init();
+
+  getMock(mock: string) {
+    return this.#mockServer.getMock(mock);
+  }
+
+  async startBrowser(headless = false) {
+    this.#browser = new Browser();
+    await this.#browser.init(headless);
+  }
+
+  async startMockServer() {
+    this.#mockServer = new MockServer(path.resolve(`${__dirname}/../mocks`));
+    await this.#mockServer.start();
+  }
+
+  async stopMockServer() {
+    this.#mockServer.close();
   }
 }

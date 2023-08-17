@@ -3,6 +3,7 @@ import { ChildProcess, spawn } from "child_process";
 import { setPort } from "../support/Browser"
 import World from "../support/World";
 import os from 'os';
+import readline from "readline";
 
 setDefaultTimeout(60000);
 setWorldConstructor(World);
@@ -24,20 +25,39 @@ BeforeAll(() => new Promise<void>(resolve => {
   nextJS.stderr!.on('data', data => {
     console.log(`stdout: ${data}`);
   });
-}));
+}))
 
 AfterAll(() => {
   if (`${os.type()}`.includes('Windows')) {
-    spawn("taskkill", ["/pid", `${nextJS.pid}`, '/f', '/t']);
+    spawn("taskkill", ["/pid", `${nextJS.pid}`, '/f', '/t'])
   } else {
-    nextJS.kill('SIGINT');
+    nextJS.kill('SIGINT')
   }
-});
+})
 
 Before(async function(this:World) {
-  await this.startBrowser();
-});
+  await this.startBrowser(typeof(this.parameters.debug) === "undefined")
+  await this.startMockServer()
+})
 
 After(async function(this:World) {
-  await this.browser.close();
-});
+  if (this.parameters.debug) {
+    await waitForPrompt("Paused. Press enter to continue\n\n") 
+  }
+  await this.browser.close()
+  await this.stopMockServer()
+})
+
+async function waitForPrompt(prompt:string) {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+
+  return new Promise<void>((resolve) => {
+    rl.question(prompt, () => {
+      rl.close();
+      resolve();
+    });
+  });
+}

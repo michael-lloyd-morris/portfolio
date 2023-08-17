@@ -19,8 +19,8 @@ class Browser {
     return this._page;
   }
 
-  async init() {
-    const driver = await chromium.launch({headless: true});
+  async init(headless = false) {
+    const driver = await chromium.launch({headless, devtools: headless});
     this._driver = driver;
 
     const context = await driver.newContext();
