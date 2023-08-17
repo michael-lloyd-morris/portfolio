@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: orange;
+  color: #039;
   h1 {
     font-size: 4vmax;
   }
@@ -32,6 +32,7 @@
     }
 
     @media (prefers-color-scheme: dark) {
+      color: orange;
       background-color: rgba(0,0,0,0.7);
     }
   }
