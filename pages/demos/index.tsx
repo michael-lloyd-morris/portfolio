@@ -19,7 +19,7 @@ export default function Home() {
           <Link href="/demos/ag-grid">AgGrid Demonstration</Link>
         </li>
         <li>
-          <Link href="/demos/css-ems">CSS Responsiveness with EMs</Link>
+          <Link href="/demos/login">NextAuth Login Demonstration</Link>
         </li>
         <li>
           <Link href="/demos/cucumber-next">Cucumber Testing with NextJS</Link>
