@@ -7,3 +7,11 @@ $secondary-background-color: darken($primary-background-color, 10%);
 $tertiary-background-color: darken($primary-background-color, 20%);
 
 $mainNav-height: 5em;
+
+$primary-dark-background-color: #000;
+$secondary-dark-background-color: lighten($primary-dark-background-color, 10%);
+$tertiary-dark-background-color: lighten($primary-dark-background-color, 20%);
+
+$primary-dark-text-color: #fff;
+$secondary-dark-text-color: darken($primary-dark-text-color, 10%);
+$tertiary-dark-text-color: darken($primary-dark-text-color, 20%);

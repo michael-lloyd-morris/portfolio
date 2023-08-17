@@ -10,6 +10,10 @@ body {
   overflow-x: hidden;
   font-family: 'Roboto', sans-serif;
   color: $primary-text-color;
+
+  @media (prefers-color-scheme: dark) {
+    color: $primary-dark-text-color;
+  }
 }
 
 html {
@@ -85,6 +89,13 @@ main {
     &:hover {
       color: red;
     }
+
+    @media (prefers-color-scheme: dark) {
+      color: orange;
+      &:visited {
+        color: orangered;
+      }  
+    }
   }
 }
 
@@ -98,6 +109,10 @@ main {
 
 h2 {
   border-bottom: 1px solid $primary-text-color;
+
+  @media (prefers-color-scheme: dark) {
+    border-bottom-color: $primary-dark-text-color;
+  }
 }
 
 h3 {
@@ -113,6 +128,10 @@ article {
     padding-bottom: 1em;
     margin-bottom: 1em;
     border-bottom: 1px solid $primary-text-color;
+
+    @media (prefers-color-scheme: dark) {
+      border-bottom-color: $primary-dark-text-color;
+    }
 
     &:last-child {
       border-bottom: none;
@@ -160,6 +179,11 @@ pre {
   background: $secondary-background-color;
   padding: 1em;
   border: 1px solid $primary-text-color;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: $secondary-dark-background-color;
+    border-color: $primary-dark-text-color;
+  }
 }
 
 .transition-container {
@@ -189,6 +213,11 @@ footer.main {
     display: block;
     text-align: center;
   }
+
+  @media (prefers-color-scheme: dark) {
+    border-top-color: $primary-dark-text-color;
+    color: $tertiary-dark-text-color;
+  }
 }
 
 .main-wrap {
@@ -199,5 +228,9 @@ footer.main {
   @media (max-width: 499px) {
     height: auto;
     overflow-y: auto;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: rgba(0,0,0,0.7);
   }
 }

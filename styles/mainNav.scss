@@ -10,6 +10,12 @@ header.main {
   border-bottom: 1px solid $tertiary-text-color;
   z-index: 1000;
 
+  @media (prefers-color-scheme: dark) {
+    color: $tertiary-dark-text-color;
+    background: $primary-dark-background-color;
+    border-bottom-color: $tertiary-dark-text-color;
+  }
+
   a {
     display: flex;
     height: 100%;
@@ -20,6 +26,9 @@ header.main {
 
     &:hover {
       background-color: $secondary-background-color;
+      @media (prefers-color-scheme: dark) {
+        background-color: $secondary-dark-background-color;
+      }
     }
   }
 
@@ -53,6 +62,10 @@ header.main {
 
       a.active {
         background-color: $tertiary-background-color;
+
+        @media (prefers-color-scheme: dark) {
+          background-color: $tertiary-dark-background-color;
+        }
       }
 
       >div {
@@ -81,6 +94,14 @@ header.main {
               border: 0;
             }
           }
+
+          @media (prefers-color-scheme: dark) {
+            border-color: $tertiary-dark-text-color;
+
+            >a {
+              border-bottom-color: $primary-dark-text-color;
+            }
+          }
         }
 
         &:hover {
@@ -91,6 +112,13 @@ header.main {
             opacity: 100%;
             background: $primary-background-color;
             height: auto;
+          }
+
+          @media (prefers-color-scheme: dark) {
+            background: $secondary-dark-background-color;
+            >div {
+              background: $primary-dark-background-color;
+            }
           }
         }
       }
@@ -130,7 +158,6 @@ header.main {
 
       }
     }
-
   }
 
   @media (max-width: 799px) {

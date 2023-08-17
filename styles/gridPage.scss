@@ -6,6 +6,11 @@ aside.agGrid {
   padding: 1em;
   font-size: 0.9em;
   margin: 0 0 1em 1em;
+
+  @media (prefers-color-scheme: dark) {
+    border-color: $tertiary-dark-text-color;
+    background-color: $secondary-dark-background-color;
+  }
 }
 
 .detail {

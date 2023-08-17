@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
 import { Session } from "next-auth";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { lightTheme, Provider } from "@adobe/react-spectrum";
+import { defaultTheme, Provider } from "@adobe/react-spectrum";
 
 import Head from "next/head";
 import PageTransition from "@/components/PageTransition";
@@ -35,7 +35,7 @@ export default function App({
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Provider theme={lightTheme}>
+        <Provider theme={defaultTheme}>
           <PageTransition>
             <Component {...pageProps} />
           </PageTransition>
