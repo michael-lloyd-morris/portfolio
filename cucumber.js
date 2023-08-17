@@ -1,16 +1,10 @@
-const baseConfig = { 
-  requireModule: ['ts-node/register'], 
-  require: ['features/steps/**/*.ts'],
-  publishQuiet: true,
-  exit: true
-}
-
 module.exports = {
-  default: baseConfig,
-  debug: { 
-    ... baseConfig,
-    worldParameters: {
-      debug: "true"
-    }
-  }
-}
+  default: {
+    requireModule: ["ts-node/register"],
+    require: ["features/steps/**/*.ts"],
+    publishQuiet: true,
+    exit: true,
+  },
+};
+
+// process.env.DEBUG_TEST = true;

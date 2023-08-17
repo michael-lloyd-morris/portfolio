@@ -1,11 +1,11 @@
-import { Browser as driver, BrowserContext, chromium, Page } from 'playwright';
+import { Browser as driver, BrowserContext, chromium, Page } from "playwright";
 
-let port:string;
+let port: string;
 
 class Browser {
-  private _driver:driver;
-  private _context:BrowserContext;
-  private _page:Page;
+  private _driver: driver;
+  private _context: BrowserContext;
+  private _page: Page;
 
   get driver() {
     return this._driver;
@@ -19,34 +19,41 @@ class Browser {
     return this._page;
   }
 
-  async init(headless = false) {
-    const driver = await chromium.launch({headless, devtools: headless});
-    this._driver = driver;
+  async init() {  
+    if (process.env.DEBUG_TEST) {
+      this._driver = await chromium.launch({headless: false, slowMo: 50});
+    } else {
+      this._driver = await chromium.launch();
+    }
+    await this.reset();
+  }
 
-    const context = await driver.newContext();
-    this._context = context;
-
-    const page = await context.newPage();
-    this._page = page;
+  async reset() {
+    if (this.page) {
+      await this.page.close();
+    }
+    if (this.context) {
+      await this.context.close();
+    }
+    this._context = await this.driver.newContext();
+    this._page = await this.context.newPage();
   }
 
   async close() {
     await this._driver.close();
   }
 
-  async goto(relativePath:string = "/") {
+  async goto(relativePath: string = "/") {
     if (!relativePath.startsWith("/")) {
       relativePath = `/${relativePath}`;
     }
     await this._page.goto(`http://localhost:${port}${relativePath}`);
   }
-} 
+}
 
 const getPort = () => port;
-const setPort = (newPort:string) => { port = newPort; }
+const setPort = (newPort: string) => {
+  port = newPort;
+};
 
-export {
-  Browser,
-  getPort,
-  setPort
-}
+export { Browser, getPort, setPort };

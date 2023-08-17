@@ -1,9 +1,9 @@
-import NextAuth from 'next-auth'
-import CredentialsProvider from '@auth/core/providers/credentials'
+import NextAuth from "next-auth";
+import CredentialsProvider from "@auth/core/providers/credentials";
 
 export default NextAuth({
   session: {
-    strategy: "jwt"
+    strategy: "jwt",
   },
   providers: [
     // @ts-ignore
@@ -11,19 +11,22 @@ export default NextAuth({
       id: "credentials",
       name: "Credentials",
       credentials: {
-        username: { type: "text", label: "Email"},
-        password: { type: "password", label: "Password"}
+        username: { type: "text", label: "Email" },
+        password: { type: "password", label: "Password" },
       },
       async authorize(credentials, req) {
-        if ( credentials.username === "john.doe@test.com" && credentials.password === "password") {
-          return { id: "1", name: "John Doe", email: "john.doe@test.com" }
+        if (
+          credentials.username === "john.doe@test.com" &&
+          credentials.password === "password"
+        ) {
+          return { id: "1", name: "John Doe", email: "john.doe@test.com" };
         }
-        throw new Error("InvalidLogin")
-      }
-    })
+        throw new Error("InvalidLogin");
+      },
+    }),
   ],
   pages: {
     signIn: "/demos/login",
-    error: "/demos/login"
-  }
-})
+    error: "/demos/login",
+  },
+});

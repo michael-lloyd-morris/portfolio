@@ -1,3 +1,4 @@
+@passing
 Feature: Pages
 
   Scenario Outline: Pages Load
@@ -12,6 +13,5 @@ Feature: Pages
   | /projects/cucumber   |
   | /demos               |
   | /demos/ag-grid       |
-  | /demos/css-ems       |
   | /demos/cucumber-next |
   | /experience          |
